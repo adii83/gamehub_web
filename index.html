@@ -1,0 +1,752 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GameHub - Tools 95K Game Steam</title>
+    <link rel="icon" href="assets/09_logo.jpg" type="image/jpeg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8c2bee",
+              "primary-hover": "#7a25d1",
+              "background-light": "#f7f6f8",
+              "background-dark": "#0B0B10", // Matched with showcase.html
+              "surface-dark": "#13131A",
+              "surface-light": "#1C1C26",
+              "accent-gold": "#FFD700",
+              "accent-blue": "#4aa9ff",
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Space Grotesk", "sans-serif"],
+            },
+            boxShadow: {
+              glow: "0 0 15px rgba(140, 43, 238, 0.4)",
+              "glow-sm": "0 0 8px rgba(140, 43, 238, 0.3)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% center;
+        }
+        100% {
+          background-position: -200% center;
+        }
+      }
+      .animate-shimmer {
+        animation: shimmer 3s linear infinite;
+      }
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #191022;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #362348;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8c2bee;
+      }
+      @keyframes gradient-border {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .animate-gradient-border {
+        background-size: 200% 200%;
+        animation: gradient-border 4s ease infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden"
+  >
+    <!-- Top Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full border-b border-surface-light bg-background-dark/95 backdrop-blur-md"
+    >
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <!-- Logo & Nav Links -->
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3 text-white">
+              <img
+                src="assets/09_logo.jpg"
+                alt="GameHub Logo"
+                class="size-10 rounded-xl shadow-glow-sm object-cover"
+              />
+              <h2 class="text-white text-xl font-bold tracking-tight">
+                GameHub
+              </h2>
+            </div>
+          </div>
+          <!-- Right Side Actions -->
+          <div class="flex flex-1 justify-end items-center gap-4">
+            <!-- Space for future nav items or social links -->
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main
+      class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10"
+    >
+      <!-- Hero Section -->
+      <!-- Hero Carousel -->
+      <div
+        class="relative w-full rounded-2xl p-[2px] bg-gradient-to-r from-[#8758f1] to-[#eb9362] shadow-2xl shadow-black/50 group mt-6 h-[480px] animate-gradient-border"
+      >
+        <section
+          id="hero-carousel"
+          class="relative w-full h-full rounded-[calc(1rem-2px)] overflow-hidden bg-surface-dark"
+        >
+          <!-- Slides Container -->
+          <div
+            id="carousel-slides"
+            class="flex transition-transform duration-700 ease-in-out h-full w-full"
+          >
+            <!-- Slides injected by JS -->
+          </div>
+
+          <!-- Overlays -->
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/60 to-transparent z-10"
+          ></div>
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10"
+          ></div>
+
+          <!-- Content Container -->
+          <div
+            class="absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-12 lg:p-16 max-w-3xl pointer-events-none"
+          >
+            <div
+              id="carousel-text-content"
+              class="transition-opacity duration-300"
+            >
+              <!-- Content injected by JS -->
+            </div>
+          </div>
+
+          <!-- Navigation Dots -->
+          <div
+            class="absolute bottom-6 right-8 z-30 flex gap-2"
+            id="carousel-dots"
+          >
+            <!-- Dots injected by JS -->
+          </div>
+        </section>
+      </div>
+      <!-- Promotional Banner -->
+      <!-- Promotional Banner (Wrapped) -->
+      <div
+        class="rounded-xl p-[2px] bg-gradient-to-r from-[#8758f1] to-[#eb9362] relative overflow-hidden shadow-lg animate-gradient-border"
+      >
+        <section
+          class="h-full w-full grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark rounded-[calc(0.75rem-2px)] p-8 items-center relative overflow-hidden"
+        >
+          <!-- Decorative Glow -->
+          <div
+            class="absolute -right-20 -top-20 w-64 h-64 bg-primary/30 rounded-full blur-[100px]"
+          ></div>
+          <div class="relative z-10 space-y-4">
+            <h2 class="text-3xl font-bold text-white">
+              Tools GameHub 95.000 ++ Game Steam
+            </h2>
+            <p class="text-slate-300">
+              Akses
+              <span class="text-primary font-bold">95,000+</span>
+              Games Steam original tanpa ribet, Sekali klik auto masuk Library
+              pribadi anda.
+            </p>
+            <a
+              href="showcase.html"
+              class="text-primary hover:text-white font-bold inline-flex items-center gap-1 transition-colors group"
+            >
+              Lihat Produk
+              <span
+                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+          <div
+            class="relative z-10 flex flex-wrap items-stretch justify-center md:justify-end gap-3 mt-6 lg:mt-0 w-full sm:w-auto"
+          >
+            <div
+              class="flex flex-col items-center justify-center bg-surface-dark/80 backdrop-blur border border-white/5 rounded-xl p-5 shadow-lg flex-1 min-w-[120px] max-w-[160px]"
+            >
+              <span
+                id="hero-total-games"
+                class="text-3xl font-bold text-white tracking-tight"
+                >95k+</span
+              >
+              <span
+                class="text-[11px] text-slate-400 text-center uppercase tracking-widest font-semibold mt-2"
+                >Games</span
+              >
+            </div>
+
+            <div
+              class="flex flex-col items-center justify-center bg-surface-dark/80 backdrop-blur border border-white/5 rounded-xl p-5 shadow-lg flex-1 min-w-[120px] max-w-[160px]"
+            >
+              <span class="text-3xl font-bold text-accent-gold tracking-tight"
+                >24/7</span
+              >
+              <span
+                class="text-[11px] text-slate-400 text-center uppercase tracking-widest font-semibold mt-2"
+                >Support</span
+              >
+            </div>
+
+            <!-- Bypass Feature -->
+            <div
+              class="flex flex-col justify-center bg-surface-dark/80 backdrop-blur border border-white/5 rounded-xl p-5 shadow-lg flex-1 min-w-[240px]"
+            >
+              <span
+                class="text-[11px] text-slate-400 uppercase tracking-widest font-semibold mb-3"
+                >Protection Bypass</span
+              >
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-accent-gold font-bold text-base">✓</span>
+                  <span class="text-sm text-white font-medium tracking-wide"
+                    >Denuvo</span
+                  >
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-accent-blue font-bold text-base">✓</span>
+                  <span class="text-sm text-white font-medium tracking-wide"
+                    >EA · Ubisoft · Rockstar · dll</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Catalog Control Bar -->
+      <div
+        class="sticky top-16 z-40 bg-background-dark/95 backdrop-blur-xl py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 border-b border-white/5"
+      >
+        <div
+          class="flex flex-col md:flex-row gap-4 justify-between items-center"
+        >
+          <!-- Filters -->
+          <div
+            class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar order-2 md:order-1"
+          >
+            <button
+              id="btn-all"
+              class="whitespace-nowrap px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-glow-sm transition-all"
+            >
+              All Games
+            </button>
+            <button
+              id="btn-premium"
+              class="whitespace-nowrap px-4 py-2 rounded-lg bg-surface-light text-slate-300 hover:text-white hover:bg-surface-light/80 text-sm font-medium transition-colors border border-transparent hover:border-primary/50"
+            >
+              <span class="text-accent-gold mr-1">★</span> Premium
+            </button>
+            <button
+              id="btn-standard"
+              class="whitespace-nowrap px-4 py-2 rounded-lg bg-surface-light text-slate-300 hover:text-white hover:bg-surface-light/80 text-sm font-medium transition-colors border border-transparent hover:border-primary/50"
+            >
+              Standard
+            </button>
+          </div>
+          <!-- Search -->
+          <div
+            class="w-full md:w-auto order-1 md:order-2 flex flex-col md:flex-row items-start md:items-center gap-1.5 md:gap-4 md:ml-auto"
+          >
+            <div class="relative w-full md:w-80 order-1 md:order-2">
+              <span
+                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                >search</span
+              >
+              <input
+                type="text"
+                id="search-input-main"
+                class="w-full bg-surface-dark border-white/10 rounded-xl py-3 pl-12 pr-4 text-white focus:ring-2 focus:ring-primary focus:border-transparent placeholder-slate-500 transition-all font-medium"
+                placeholder="Search by Title or AppID..."
+              />
+            </div>
+            <!-- Helper text -->
+            <p
+              class="text-[10px] md:text-xs text-slate-400 text-left md:text-right order-2 md:order-1 pl-2 md:pl-0"
+            >
+              Tips : Cari berdasarkan AppID lewat
+              <br class="hidden md:block" /><a
+                href="https://steamdb.info/"
+                target="_blank"
+                class="text-primary hover:text-primary-hover hover:underline transition-all"
+                >SteamDB</a
+              >
+              untuk hasil akurat
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Game Grid (Overlay Style) -->
+      <section class="w-full">
+        <div
+          class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2"
+        >
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-2xl font-bold text-white tracking-tight">
+                Games List
+              </h3>
+              <span
+                id="dynamic-total-games"
+                class="text-xs font-bold bg-primary/20 text-primary border border-primary/30 px-2.5 py-1 rounded-full"
+              >
+                Total 95.676
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">
+              *Game akan selalu bertambah seiring waktu
+            </p>
+          </div>
+        </div>
+        <!-- Game Grid -->
+        <div id="game-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Games will be loaded here dynamically -->
+        </div>
+      </section>
+
+      <!-- Dynamic Counter Script -->
+      <script>
+        (function () {
+          // Basis data awal
+          const baseCount = 95676;
+
+          // Tanggal Peluncuran / Titik Awal Penghitungan (21 Februari 2026)
+          const startDate = new Date("2026-02-21T00:00:00").getTime();
+
+          function updateCounter() {
+            const now = Date.now();
+            const elapsedMilliseconds = Math.max(0, now - startDate);
+            const elapsedHours = Math.floor(
+              elapsedMilliseconds / (1000 * 60 * 60),
+            );
+
+            // Bertambah 10 game setiap jam
+            const totalAdded = elapsedHours * 10;
+            const currentTotal = baseCount + totalAdded;
+
+            // Update Label "Total 95.676"
+            // Karena format aslinya menggunakan titik sebagai pemisah ribuan, kita pakai locale 'id-ID'
+            const formattedTotal = currentTotal.toLocaleString("id-ID");
+            const badgeEl = document.getElementById("dynamic-total-games");
+            if (badgeEl) badgeEl.textContent = "Total " + formattedTotal;
+
+            // Update Hero Banner Promo "95.6k+"
+            const heroFormat =
+              (currentTotal / 1000).toFixed(1).replace(".0", "") + "k+";
+            const heroEl = document.getElementById("hero-total-games");
+            if (heroEl) heroEl.textContent = heroFormat;
+          }
+
+          // Jalankan langsung
+          updateCounter();
+        })();
+      </script>
+      <!-- Pagination / Load More -->
+      <div class="flex justify-center py-8">
+        <button
+          id="load-more-btn"
+          class="flex items-center gap-2 bg-surface-light hover:bg-surface-light/80 text-white px-6 py-3 rounded-lg font-bold transition-all border border-transparent hover:border-primary"
+        >
+          Load More Games
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+      </div>
+    </main>
+    <!-- Footer -->
+    <script>
+      const carouselData = [
+        {
+          appid: "3405690",
+          name: "EA SPORTS FC™ 26",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3405690/d32943b4fdbf90b6541c3fbfe2b7cda9c33e8e6e/library_hero_2x.jpg?t=1769020260",
+          genres: ["Simulation", "Sports"],
+        },
+        {
+          appid: "3159330",
+          name: "Assassin’s Creed Shadows",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/7e28d06f1f49bfdf57f0eca2f570f3a0b3fb09b0/library_hero_2x.jpg?t=1770145731",
+          genres: ["Action", "Adventure", "RPG"],
+        },
+        {
+          appid: "1846380",
+          name: "Need for Speed™ Unbound",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1846380/library_hero_2x.jpg?t=1761146151",
+          genres: ["Action", "Racing"],
+        },
+        {
+          appid: "2807960",
+          name: "Battlefield™ 6",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/b89260b3db1f336418e8f9739e7ebfb3d44c2861/library_hero_2x.jpg?t=1771423246",
+          genres: ["Action"],
+        },
+        {
+          appid: "3240220",
+          name: "Grand Theft Auto V Enhanced",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/156530620aa0b27bc9c73f78c3ca64f7d8fed03d/library_hero_2x.jpg?t=1765479644",
+          genres: ["Action", "Adventure", "Racing"],
+        },
+        {
+          appid: "1174180",
+          name: "Red Dead Redemption 2",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero_2x.jpg?t=1759502961",
+          genres: ["Action", "Adventure"],
+        },
+      ];
+
+      let currentSlide = 0;
+      const totalSlides = carouselData.length;
+      const slidesContainer = document.getElementById("carousel-slides");
+      const textContentContainer = document.getElementById(
+        "carousel-text-content",
+      );
+      const dotsContainer = document.getElementById("carousel-dots");
+
+      function initCarousel() {
+        // Render Slides (Images only)
+        slidesContainer.innerHTML = carouselData
+          .map(
+            (game, index) => `
+          <div class="h-full w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('${game.header_image}');"></div>
+        `,
+          )
+          .join("");
+
+        // Render Dots
+        dotsContainer.innerHTML = carouselData
+          .map(
+            (_, index) => `
+          <button onclick="goToSlide(${index})" class="h-1.5 rounded-full transition-all duration-300 ${index === 0 ? "w-8 bg-primary" : "w-4 bg-white/50 hover:bg-white"}"></button>
+        `,
+          )
+          .join("");
+
+        // Initial Text
+        updateTextContent(0);
+
+        // Start Auto Slide
+        setInterval(nextSlide, 5000);
+      }
+
+      function updateTextContent(index) {
+        const game = carouselData[index];
+        // Generate Genre Badges
+        const genreBadges = game.genres
+          .map(
+            (g) =>
+              `<span class="px-2 py-1 rounded bg-black/40 border border-white/10 text-[10px] font-bold uppercase tracking-wider text-slate-300 backdrop-blur-sm">${g}</span>`,
+          )
+          .join("");
+
+        const html = `
+          <span class="bg-gradient-to-r from-[#FFD700] via-[#FFFACD] to-[#FFD700] bg-[length:200%_auto] bg-clip-text text-transparent animate-shimmer font-bold tracking-widest text-lg uppercase mb-2 block w-fit">
+            Most Popular Game
+          </span>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-none tracking-tighter mb-4 drop-shadow-lg">
+            ${game.name}
+          </h1>
+          <div class="flex flex-wrap gap-2 animate-fadeIn">
+            ${genreBadges}
+          </div>
+        `;
+
+        // Fade out, change, fade in
+        textContentContainer.style.opacity = "0";
+        setTimeout(() => {
+          textContentContainer.innerHTML = html;
+          textContentContainer.style.opacity = "1";
+        }, 300);
+      }
+
+      function updateDots(index) {
+        const dots = dotsContainer.querySelectorAll("button");
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.className =
+              "h-1.5 rounded-full transition-all duration-300 w-8 bg-primary";
+          } else {
+            dot.className =
+              "h-1.5 rounded-full transition-all duration-300 w-4 bg-white/50 hover:bg-white";
+          }
+        });
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateTextContent(currentSlide);
+        updateDots(currentSlide);
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }
+
+      // Initialize on load
+      // Initialize on load
+      document.addEventListener("DOMContentLoaded", () => {
+        initCarousel();
+        initGameList();
+      });
+
+      // --- Game List Logic ---
+      const GAME_DATA_URL = "data/games_list.json";
+      let allGames = [];
+      let filteredGames = [];
+      let currentIndex = 0;
+      const BATCH_SIZE = 52;
+
+      // State
+      let currentFilter = "all"; // 'all', 'premium', 'standard'
+      let searchQuery = "";
+
+      // Elements
+      const grid = document.getElementById("game-grid");
+      const loadMoreBtn = document.getElementById("load-more-btn");
+      const btnAll = document.getElementById("btn-all");
+      const btnPremium = document.getElementById("btn-premium");
+      const btnStandard = document.getElementById("btn-standard");
+      const searchInput = document.getElementById("search-input");
+
+      async function initGameList() {
+        try {
+          const response = await fetch(GAME_DATA_URL);
+          if (!response.ok) throw new Error("Failed to load game data");
+          const data = await response.json();
+
+          // --- IMPLEMENTATION OF 4:1 WEIGHTED MIX (40 Premium : 10 Standard) ---
+
+          // 1. Separate by type
+          const premiumGames = data.filter((g) => g.premium);
+          const standardGames = data.filter((g) => !g.premium);
+
+          // 2. Shuffle both pools independently
+          premiumGames.sort(() => Math.random() - 0.5);
+          standardGames.sort(() => Math.random() - 0.5);
+
+          // 3. Create Chunks of 50 (40P + 10S)
+          const mixedGames = [];
+
+          let pIndex = 0;
+          let sIndex = 0;
+
+          while (
+            pIndex < premiumGames.length ||
+            sIndex < standardGames.length
+          ) {
+            const chunk = [];
+
+            // Add up to 40 Premium
+            for (let i = 0; i < 40; i++) {
+              if (pIndex < premiumGames.length) {
+                chunk.push(premiumGames[pIndex++]);
+              }
+            }
+
+            // Add up to 10 Standard
+            for (let i = 0; i < 10; i++) {
+              if (sIndex < standardGames.length) {
+                chunk.push(standardGames[sIndex++]);
+              }
+            }
+
+            // Shuffle this chunk to mix P and S randomly within the view
+            chunk.sort(() => Math.random() - 0.5);
+
+            // Add to final list
+            mixedGames.push(...chunk);
+          }
+
+          // 4. Assign to allGames
+          allGames = mixedGames;
+
+          // Initial Filter
+          applyFilters();
+
+          // Event Listeners
+          setupEventListeners();
+        } catch (error) {
+          console.error("Error loading games:", error);
+        }
+      }
+
+      function setupEventListeners() {
+        // Filters
+        btnAll.addEventListener("click", () => setFilter("all"));
+        btnPremium.addEventListener("click", () => setFilter("premium"));
+        btnStandard.addEventListener("click", () => setFilter("standard"));
+
+        // Search
+        const searchInputMain = document.getElementById("search-input-main");
+        if (searchInputMain) {
+          searchInputMain.addEventListener("input", (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            applyFilters();
+          });
+        }
+
+        // Load More
+        if (loadMoreBtn) {
+          loadMoreBtn.addEventListener("click", renderNextBatch);
+        }
+      }
+
+      function setFilter(type) {
+        currentFilter = type;
+
+        // Update UI Buttons
+        updateButtonStyle(btnAll, type === "all");
+        updateButtonStyle(btnPremium, type === "premium");
+        updateButtonStyle(btnStandard, type === "standard");
+
+        applyFilters();
+      }
+
+      function updateButtonStyle(btn, isActive) {
+        if (isActive) {
+          btn.className =
+            "whitespace-nowrap px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-glow-sm transition-all";
+        } else {
+          btn.className =
+            "whitespace-nowrap px-4 py-2 rounded-lg bg-surface-light text-slate-300 hover:text-white hover:bg-surface-light/80 text-sm font-medium transition-colors border border-transparent hover:border-primary/50";
+        }
+      }
+
+      function applyFilters() {
+        // Filter Logic
+        filteredGames = allGames.filter((game) => {
+          // 1. Category Filter
+          if (currentFilter === "premium" && !game.premium) return false;
+          if (currentFilter === "standard" && game.premium) return false;
+
+          // 2. Search Filter
+          if (searchQuery) {
+            const gameTitle = game.title.toLowerCase();
+            const gameId = game.appid.toString();
+
+            if (
+              !gameTitle.includes(searchQuery) &&
+              !gameId.includes(searchQuery)
+            ) {
+              return false;
+            }
+          }
+
+          return true;
+        });
+
+        // Reset Pagination
+        currentIndex = 0;
+        grid.innerHTML = ""; // Clear existing
+
+        renderNextBatch();
+      }
+
+      function renderNextBatch() {
+        const nextBatch = filteredGames.slice(
+          currentIndex,
+          currentIndex + BATCH_SIZE,
+        );
+
+        if (nextBatch.length === 0 && currentIndex === 0) {
+          grid.innerHTML =
+            '<div class="col-span-full text-center text-slate-400 py-10">No games found.</div>';
+          if (loadMoreBtn) loadMoreBtn.style.display = "none";
+          return;
+        }
+
+        const html = nextBatch
+          .map((game) => {
+            const isPremium = game.premium;
+            // Badge Logic
+            // SOLID COLORS as requested:
+            // Premium: Gold background, Dark text
+            // Standard: Blue background, White text
+            const finalBadgeClass = isPremium
+              ? "bg-accent-gold border-accent-gold text-surface-dark"
+              : "bg-accent-blue border-accent-blue text-white";
+            const badgeText = isPremium ? "Premium" : "Standard";
+
+            return `
+          <div class="group relative rounded-xl p-[2px] bg-gradient-to-r from-[#8758f1] to-[#eb9362] aspect-video shadow-lg cursor-pointer hover:scale-[1.02] transition-transform duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] animate-gradient-border">
+           <div class="relative w-full h-full rounded-[calc(0.75rem-2px)] overflow-hidden bg-surface-dark">
+            <img src="${game.header}" class="h-full w-full object-cover" alt="${game.title}" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent opacity-90"></div>
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-1 rounded ${finalBadgeClass} backdrop-blur-md border text-[10px] font-bold uppercase tracking-wider shadow-sm">${badgeText}</span>
+            </div>
+            <div class="absolute bottom-0 left-0 p-3 w-full">
+              <div class="flex flex-col items-start gap-1">
+                <span class="px-1.5 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-slate-300 font-mono">AppID: ${game.appid}</span>
+                <h4 class="text-white font-bold text-lg leading-tight drop-shadow-md transition-colors line-clamp-2">${game.title}</h4>
+              </div>
+            </div>
+           </div>
+          </div>
+            `;
+          })
+          .join("");
+
+        grid.insertAdjacentHTML("beforeend", html);
+        currentIndex += nextBatch.length;
+
+        // Button Visibility
+        if (loadMoreBtn) {
+          loadMoreBtn.style.display =
+            currentIndex >= filteredGames.length ? "none" : "flex";
+        }
+      }
+    </script>
+  </body>
+</html>

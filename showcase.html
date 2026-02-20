@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showcase Tools GameHub</title>
+    <link rel="icon" href="assets/09_logo.jpg" type="image/jpeg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              primary: "#6d28d9", // Deep Purple
+              "primary-hover": "#5b21b6",
+              "background-dark": "#0B0B10", // Very dark blue/black
+              "surface-dark": "#13131A", // Slightly lighter for cards
+              "surface-light": "#1C1C26",
+              "accent-gold": "#FFD700",
+              "accent-blue": "#4aa9ff",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-dark text-slate-100 min-h-screen flex flex-col pt-16 font-sans"
+  >
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 w-full z-50 border-b border-white/5 bg-background-dark/95 backdrop-blur-md"
+    >
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between gap-2">
+          <a
+            href="index.html"
+            class="flex items-center gap-2 group text-white hover:text-primary transition-colors"
+          >
+            <span
+              class="material-symbols-outlined group-hover:-translate-x-1 transition-transform"
+              >arrow_back</span
+            >
+            <span class="font-bold text-sm md:text-base hidden sm:inline">Kembali ke GameHub</span>
+            <span class="font-bold text-sm sm:hidden">Kembali</span>
+          </a>
+          <!-- Shopee Link -->
+          <a
+            href="https://id.shp.ee/nBHz8qC"
+            target="_blank"
+            class="text-xs md:text-sm font-bold bg-[#ee4d2d] hover:bg-[#d73f22] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-colors flex items-center gap-1.5"
+          >
+            <span class="hidden sm:inline">Lihat Produk di Shopee</span>
+            <span class="sm:hidden">Shopee</span>
+            <span class="material-symbols-outlined text-sm">shopping_bag</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+      class="flex-grow flex flex-col items-center justify-center p-4 lg:p-12"
+    >
+      <div
+        class="w-full max-w-5xl mx-auto flex flex-col gap-8 opacity-0 animate-[fadeIn_0.5s_ease_forwards]"
+      >
+        <!-- Header -->
+        <div class="text-center space-y-4">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-sm font-semibold tracking-wide"
+          >
+            <span class="material-symbols-outlined text-sm">play_circle</span>
+            VIDEO DEMONSTRASI
+          </div>
+          <h1
+            class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400"
+          >
+            Showcase Tools GameHub
+          </h1>
+        </div>
+
+        <!-- Video Container -->
+        <div
+          class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-surface-dark group"
+        >
+          <!-- Glassmorphism Reflection -->
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          ></div>
+
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/F91wxDt8uo0"
+            title="Showcase Tools GameHub"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="mt-12 flex flex-col items-center gap-10">
+          <div class="text-center space-y-4">
+            <!-- Promo Alert -->
+            <div class="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-4 py-2 rounded-xl sm:rounded-full bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)] animate-pulse text-center">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <span class="text-lg sm:text-xl">🔥</span>
+                <span class="text-white font-bold tracking-wide text-sm sm:text-base">SEDANG PROMO!</span>
+              </div>
+              <span class="hidden sm:inline text-red-300 font-medium px-2">—</span>
+              <span class="text-orange-200 text-xs sm:text-sm">Harga terbaik tersedia di Shopee</span>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">
+              Pilih Paket GameHub Kamu
+            </h2>
+            <p class="text-slate-400 text-lg max-w-xl mx-auto">
+              Perbedaan Standard vs Premium. Pilih akses yang paling sesuai
+              dengan kebutuhan gaming kamu.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto"
+          >
+            <!-- Standard Card -->
+            <div
+              class="relative bg-surface-dark/60 backdrop-blur border border-white/10 rounded-2xl p-8 flex flex-col gap-6 transition-all hover:border-primary/50 hover:shadow-[0_0_30px_rgba(109,40,217,0.15)] opacity-0 animate-[fadeIn_0.5s_ease_forwards]"
+              style="animation-delay: 0.2s"
+            >
+              <div class="flex items-center gap-2">
+                <h3 class="text-2xl font-bold text-white">Standard</h3>
+                <span class="text-2xl">💜</span>
+              </div>
+              <ul class="space-y-4 flex-grow">
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Lifetime Akses</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Akses hingga <strong>10.000</strong> game</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Full DLC (jika tersedia)</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Tidak ada limit add game per hari</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-500">
+                  <span
+                    class="material-symbols-outlined text-red-500/70 font-bold"
+                    >close</span
+                  >
+                  <span>Tidak bypass Denuvo</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-500">
+                  <span
+                    class="material-symbols-outlined text-red-500/70 font-bold"
+                    >close</span
+                  >
+                  <span
+                    >Bypass 3rd-Party
+                    <span class="text-xs">(hanya beberapa game)</span></span
+                  >
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Online fix</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span>Permanen, 1 device</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span><strong>Gak perlu bayar Membership lagi</strong></span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span
+                    class="material-symbols-outlined text-green-500 font-bold"
+                    >check</span
+                  >
+                  <span><strong>Garansi Selamanya</strong></span>
+                </li>
+              </ul>
+              <a
+                href="https://id.shp.ee/nBHz8qC"
+                target="_blank"
+                class="mt-4 w-full py-3 rounded-xl bg-surface-light hover:bg-white/10 text-white font-bold text-center border border-white/5 transition-colors"
+              >
+                Pilih Standard
+              </a>
+            </div>
+
+            <!-- Premium Card -->
+            <div
+              class="relative bg-gradient-to-b from-primary/20 to-surface-dark border border-primary text-white rounded-2xl p-8 flex flex-col gap-6 transform md:-translate-y-4 shadow-[0_0_40px_rgba(109,40,217,0.3)] opacity-0 animate-[fadeIn_0.5s_ease_forwards]"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Badge -->
+              <div
+                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent-gold to-yellow-600 text-black text-xs font-extrabold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-glow-sm"
+              >
+                Paling Laris
+              </div>
+
+              <div class="flex items-center gap-2">
+                <h3
+                  class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-accent-gold"
+                >
+                  Premium
+                </h3>
+                <span class="text-2xl">🔥</span>
+              </div>
+
+              <ul class="space-y-4 flex-grow">
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span>Lifetime Akses</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span
+                    >Akses hingga
+                    <strong class="text-accent-gold font-extrabold"
+                      >95.000++</strong
+                    >
+                    game</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span>Full DLC (jika tersedia)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span>Tidak ada limit add game per hari</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span class="font-bold text-white drop-shadow-md"
+                    >Bypass Denuvo</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span class="font-bold text-white drop-shadow-md"
+                    >Bypass 3rd-Party
+                    <span class="text-xs font-normal text-slate-300"
+                      >(EA, Ubisoft, Rockstar, dll)</span
+                    ></span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span>Online fix</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span>Permanen, 1 device</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span class="font-extrabold text-white"
+                    >Gak perlu bayar Membership lagi</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-gold font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]"
+                    >check</span
+                  >
+                  <span class="font-extrabold text-white"
+                    >GARANSI SELAMANYA</span
+                  >
+                </li>
+              </ul>
+
+              <a
+                href="https://id.shp.ee/nBHz8qC"
+                target="_blank"
+                class="mt-4 w-full py-4 rounded-xl bg-gradient-to-r from-primary to-primary-hover hover:scale-[1.02] text-white font-extrabold text-center shadow-[0_0_20px_rgba(109,40,217,0.6)] transition-all"
+              >
+                Dapatkan Premium Sekarang
+              </a>
+            </div>
+          </div>
+        <!-- FAQ Section -->
+        <div class="mt-20 w-full max-w-4xl mx-auto flex flex-col gap-8 opacity-0 animate-[fadeIn_0.5s_ease_forwards]" style="animation-delay: 0.6s;">
+          <div class="text-center space-y-3">
+            <h2 class="text-3xl font-extrabold text-white">Pertanyaan Sering Diajukan (FAQ)</h2>
+            <p class="text-slate-400">Masih ragu? Temukan jawaban untuk pertanyaan paling umum di bawah ini.</p>
+          </div>
+
+          <div class="grid gap-4">
+            <!-- FAQ 1 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-primary">❓</span> Apa itu Tools GameHub?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Tools untuk menambahkan game Steam ke akun kamu secara otomatis. Simple banget!</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-green-400">❓</span> Aman dari banned?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Santuy, <strong class="text-green-400">100% aman</strong>.  Metodenya tidak memodifikasi file Steam dan tidak terdeteksi sistem Steam. <br>
+Ibarat numpang di library Steam kamu.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-primary">❓</span> Metode pengirimannya bagaimana?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Setelah checkout, kirim email kamu ke admin melalui chat Shopee.<br>Setup tools dan tutorial lengkap akan dikirim melalui email, lalu dibantu sampai berhasil.</p>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-accent-gold">❓</span> Apa itu Denuvo?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Denuvo adalah sistem proteksi pada game AAA.<br>Tools GameHub sudah disiapkan untuk membantu agar game tetap bisa dimainkan.</p>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-accent-gold">❓</span> Game Denuvo bisa dimainkan?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Bisa. Kalau ada kendala, akan dibantu sampai berhasil.</p>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-accent-blue">❓</span> Game 3rd-party?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Sebagian sudah support, sebagian belum.</p>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-red-400">❓</span> Jika error?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Langsung hubungi admin. Bantuan remote tersedia sampai berhasil.</p>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-primary">❓</span> Bisa dipakai di banyak PC?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Tidak. Cukup 1 device saja.</p>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="bg-surface-dark border border-white/5 rounded-xl p-5 hover:border-primary/30 transition-colors">
+              <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <span class="text-primary">❓</span> Bisa di konsol?
+              </h4>
+              <p class="text-slate-400 leading-relaxed pl-7">Bisa selama OS-nya Windows (Steam Deck dan sejenisnya).</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </body>
+</html>
