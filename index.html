@@ -569,7 +569,9 @@
 
       async function initGameList() {
         try {
-          const response = await fetch(GAME_DATA_URL);
+          // Add cache busting parameter to bypass GitHub Pages/Browser cache
+          const fetchUrl = `${GAME_DATA_URL}?v=${new Date().getTime()}`;
+          const response = await fetch(fetchUrl);
           if (!response.ok) throw new Error("Failed to load game data");
           const data = await response.json();
 
@@ -672,6 +674,21 @@
       }
 
       function applyFilters() {
+        // Normalisasi teks untuk search (hilangkan simbol khusus, spasi ganda, ™, ®, dll)
+        const normalizeText = (text) => {
+          return text
+            .toLowerCase()
+            .replace(/[™®©]/g, "") // Hapus karakter trademark/copyright spesifik
+            .replace(/['’`]/g, "") // Hapus kutip tunggal/apostrof sepenuhnya (Assassin's -> Assassins)
+            .replace(/[^a-z0-9\s]/g, " ") // Ganti semua karakter non-alfanumerik lainnya dengan spasi
+            .replace(/\s+/g, " ") // Rapikan spasi berlebih
+            .trim();
+        };
+
+        const normalizedSearchQuery = searchQuery
+          ? normalizeText(searchQuery)
+          : "";
+
         // Filter Logic
         filteredGames = allGames.filter((game) => {
           // 1. Category Filter
@@ -679,13 +696,13 @@
           if (currentFilter === "standard" && game.premium) return false;
 
           // 2. Search Filter
-          if (searchQuery) {
-            const gameTitle = game.title.toLowerCase();
+          if (normalizedSearchQuery) {
+            const normalizedGameTitle = normalizeText(game.title);
             const gameId = game.appid.toString();
 
             if (
-              !gameTitle.includes(searchQuery) &&
-              !gameId.includes(searchQuery)
+              !normalizedGameTitle.includes(normalizedSearchQuery) &&
+              !gameId.includes(normalizedSearchQuery)
             ) {
               return false;
             }
