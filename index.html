@@ -291,9 +291,9 @@
           </div>
           <!-- Search -->
           <div
-            class="w-full md:w-auto order-1 md:order-2 flex flex-col md:flex-row items-start md:items-center gap-1.5 md:gap-4 md:ml-auto"
+            class="w-full md:w-auto order-1 lg:order-2 flex flex-col lg:flex-row items-start lg:items-center gap-1.5 lg:gap-4 lg:ml-auto"
           >
-            <div class="relative w-full md:w-80 order-1 md:order-2">
+            <div class="relative w-full md:w-80 lg:order-2">
               <span
                 class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
                 >search</span
@@ -307,10 +307,10 @@
             </div>
             <!-- Helper text -->
             <p
-              class="text-[10px] md:text-xs text-slate-400 text-left md:text-right order-2 md:order-1 pl-2 md:pl-0"
+              class="text-[10px] md:text-xs text-slate-400 text-left lg:text-right w-full lg:w-auto lg:order-1 pl-2 md:pl-0"
             >
               Tips : Cari berdasarkan AppID lewat
-              <br class="hidden md:block" /><a
+              <br class="hidden lg:block" /><a
                 href="https://steamdb.info/"
                 target="_blank"
                 class="text-primary hover:text-primary-hover hover:underline transition-all"
@@ -430,7 +430,7 @@
         },
         {
           appid: "3240220",
-          name: "Grand Theft Auto V Enhanced",
+          name: "Grand Theft Auto V",
           header_image:
             "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/156530620aa0b27bc9c73f78c3ca64f7d8fed03d/library_hero_2x.jpg?t=1765479644",
           genres: ["Action", "Adventure", "Racing"],
@@ -440,6 +440,8 @@
           name: "Red Dead Redemption 2",
           header_image:
             "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero_2x.jpg?t=1759502961",
+          mobile_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/hero_capsule.jpg?t=1759502961",
           genres: ["Action", "Adventure"],
         },
       ];
@@ -453,13 +455,19 @@
       const dotsContainer = document.getElementById("carousel-dots");
 
       function initCarousel() {
-        // Render Slides (Images only)
+        // Render Slides (Using <picture> for responsive images)
         slidesContainer.innerHTML = carouselData
-          .map(
-            (game, index) => `
-          <div class="h-full w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('${game.header_image}');"></div>
-        `,
-          )
+          .map((game, index) => {
+            const mobileSrc = game.mobile_image || game.header_image;
+            return `
+                <div class="h-full w-full flex-shrink-0 relative">
+                  <picture class="h-full w-full block">
+                    <source media="(min-width: 768px)" srcset="${game.header_image}">
+                    <img src="${mobileSrc}" alt="${game.name}" class="w-full h-full object-cover">
+                  </picture>
+                </div>
+              `;
+          })
           .join("");
 
         // Render Dots
