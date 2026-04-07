@@ -355,18 +355,33 @@
           // Basis data awal
           const baseCount = 95676;
 
-          // Tanggal Peluncuran / Titik Awal Penghitungan (21 Februari 2026)
-          const startDate = new Date("2026-02-21T00:00:00").getTime();
+          // Tanggal Peluncuran / Titik Awal Penghitungan baru (reset dari awal)
+          const startDate = new Date("2026-04-07T00:00:00").getTime();
+
+          // Random stabil per hari (hasil sama untuk tanggal yang sama)
+          function getDailyIncrement(dayIndex) {
+            const seed = (dayIndex + 1) * 9301 + 49297;
+            const pseudoRandom = (seed % 233280) / 233280;
+            return Math.floor(pseudoRandom * 21) + 20; // 20..40
+          }
+
+          function getTotalAdded(daysElapsedInclusive) {
+            let total = 0;
+            for (let i = 0; i < daysElapsedInclusive; i++) {
+              total += getDailyIncrement(i);
+            }
+            return total;
+          }
 
           function updateCounter() {
             const now = Date.now();
             const elapsedMilliseconds = Math.max(0, now - startDate);
-            const elapsedHours = Math.floor(
-              elapsedMilliseconds / (1000 * 60 * 60),
+            const elapsedDays = Math.floor(
+              elapsedMilliseconds / (1000 * 60 * 60 * 24),
             );
 
-            // Bertambah 10 game setiap jam
-            const totalAdded = elapsedHours * 10;
+            // Bertambah acak 20-40 game setiap hari
+            const totalAdded = getTotalAdded(elapsedDays + 1);
             const currentTotal = baseCount + totalAdded;
 
             // Update Label "Total 95.676"
@@ -401,49 +416,49 @@
     <script>
       const carouselData = [
         {
+          appid: "3321460",
+          name: "Crimson Desert",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/fa05258232b2b970e2730d2ad5917842e914283c/library_hero_2x.jpg?t=1775206852",
+          mobile_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/d5a5d928a5d1b4469ca96db94877c8bffc3bb8e4/hero_capsule_2x.jpg?t=1775206852",
+            genres: ["Action", "Adventure", "RPG"],
+        },
+        {
           appid: "3764200",
           name: "Resident Evil Requiem",
           header_image:
             "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3764200/90d7401b621e98bd61b2f66616ffafcb58d75fd7/library_hero_2x.jpg?t=1772424364",
-          genres: ["Action", "Adventure"],
+          mobile_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3764200/4ba177b01d69c83eb34c24098b15959e232f8b9e/hero_capsule_2x.jpg?t=1772587704",
+            genres: ["Action", "Adventure"],
         },
         {
           appid: "3405690",
           name: "EA SPORTS FC™ 26",
           header_image:
             "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3405690/d32943b4fdbf90b6541c3fbfe2b7cda9c33e8e6e/library_hero_2x.jpg?t=1769020260",
+          mobile_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3405690/92cec30c4b24d581ea110d9f3ead824abcba48c4/hero_capsule_2x.jpg?t=1774297876",
           genres: ["Simulation", "Sports"],
+        },
+        {
+          appid: "3059520",
+          name: "F1® 25",
+          header_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3059520/37f833ca5bd3d5c3eec2b411131f3e00f580bbe7/header_2x.jpg?t=1772707224",
+          mobile_image:
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3059520/d9b04251248a7d0259ebd9debf669034cf2c5f02/hero_capsule_2x.jpg?t=1772707224",
+          genres: ["Racing", "Simulation", "Sports"],
         },
         {
           appid: "3159330",
           name: "Assassin’s Creed Shadows",
           header_image:
             "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/7e28d06f1f49bfdf57f0eca2f570f3a0b3fb09b0/library_hero_2x.jpg?t=1770145731",
-          genres: ["Action", "Adventure", "RPG"],
-        },
-        {
-          appid: "1846380",
-          name: "Need for Speed™ Unbound",
-          header_image:
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1846380/library_hero_2x.jpg?t=1761146151",
-          genres: ["Action", "Racing"],
-        },
-
-        {
-          appid: "3240220",
-          name: "Grand Theft Auto V",
-          header_image:
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/156530620aa0b27bc9c73f78c3ca64f7d8fed03d/library_hero_2x.jpg?t=1765479644",
-          genres: ["Action", "Adventure", "Racing"],
-        },
-        {
-          appid: "1174180",
-          name: "Red Dead Redemption 2",
-          header_image:
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero_2x.jpg?t=1759502961",
           mobile_image:
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/hero_capsule.jpg?t=1759502961",
-          genres: ["Action", "Adventure"],
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/2403d29172f35640e45c9af581f510f2568fe19f/hero_capsule_2x.jpg?t=1774551195",
+          genres: ["Action", "Adventure", "RPG"],
         },
       ];
 
